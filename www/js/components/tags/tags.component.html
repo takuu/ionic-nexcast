@@ -1,0 +1,28 @@
+<ion-content style="margin-top:2%;top:27vh !important;">
+    <ion-list can-swipe="true">
+        <ion-item ng-repeat="tag in tags | orderBy:tagOrder" style="padding:0px;border-top-width:0px;border:none;" ng-class="{'item-thumbnail-left': listOrder && !(currentToggledIndex == $index)}" ng-if="incomingTagIndex >= $index" ng-show="(currentTagIndex == $index) || listOrder">
+
+            <div ng-if="tag.image_location">
+                <img style="width:100%;" ng-src="{{tag.image_location}}" alt="" />
+            </div>
+
+            <div ng-if="tag.video_location" class="video-container2">
+                <iframe  id="videoObject" style="padding-top:0px;" src="{{tag.video_location}}" type="text/html" class="video" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <br />
+            <div style="width:100%;padding:2% 3%;">
+                <p style="color:#404040;font-size:18px;padding:0 .2em;margin:1% 1% 5% 1%;white-space: normal;" id="formattedContent{{$index}}"></p>
+
+                <div class="row" ng-show="!listOrder">
+                    <button style="width:100%;background-color:#02dd78;font-size:1.4em;" class="button button-balanced" ng-click="go(tag.button1_link)" ng-if="tag.button1_text">
+                        {{tag.button1_text}}
+                    </button>
+                </div>
+            </div>
+
+            <div ng-show="listOrder && !(currentToggledIndex == $index)">
+                <i class="icon ion-chevron-down"></i>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

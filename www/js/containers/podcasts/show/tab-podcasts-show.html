@@ -1,0 +1,36 @@
+<ion-view view-title="Podcasts">
+    <ion-content class="has-header" has-footer="true">
+
+        <!-- This is to show list of EPISODES -->
+        <div class="item item-thumbnail-left" ng-show="showResult">
+            <img ng-src="{{showResult.imageurl}}" />
+            <h2>{{showResult.title}}</h2>
+            <p>{{showResult.author}}</p>
+
+
+            <div style="padding:0px;float:left;">Comedy</div>
+            <div style="padding:0px;float:right;">
+                <button class="button button-balanced icon-right ion-chevron-down" ng-class="{'button-outline': !isSubscribed}" style="line-height:2.4em;" ng-click="subscribeToggle()">
+                    <span ng-if="!isSubscribed">SUBSCRIBE</span>
+                    <span ng-if="isSubscribed">SUBSCRIBED</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="item" ng-show="showResult">
+
+            <h2>Description</h2>
+            <p>{{showResult.long_desc}}</p>
+        </div>
+        <a ng-repeat="episode in showResult.episodes" ui-sref="player({mp3: episode.media_location, key: episode.episode_key, title: showResult.title, subTitle: episode.title })" class="item">
+            <!--<img ng-src="{{showResult.imageurl}}" />-->
+            <h2>{{episode.title}}</h2>
+            <p>{{showResult.author}}</p>
+            <p>{{episode.subtitle || episode.parsedDescription}}</p>
+        </a>
+
+    </ion-content>
+    <ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </ion-footer-bar>
+</ion-view>

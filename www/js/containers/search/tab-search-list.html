@@ -1,0 +1,40 @@
+<ion-view view-title="Search" style="background-color:#fff;" nav-transition="none" cache-view="true">
+
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="secondary">
+            <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <!--  <ion-nav-buttons side="secondary">
+        <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+        </button>
+      </ion-nav-buttons>-->
+
+    <ion-content class="has-header" has-footer="true">
+        <ion-spinner icon="ios-small" style="position:absolute;top:50%;left:48%;z-index:1000;" ng-show="isLoading"></ion-spinner>
+        <div class="list">
+            <!-- This is to show list of SHOWS -->
+            <a ng-repeat="shows in search" href="{{show.rss_feed}}" ui-sref="app.tab.searchItem({rss: shows.feedUrl})" class="item item-thumbnail-left">
+                <img ng-src="{{shows.artworkUrl100}}" />
+                <h2>{{shows.trackName}}</h2>
+                <p>{{shows.artistName}}</p>
+            </a>
+
+            <div class="item" ng-hide="search.length || isRSS" style="top:25%;position:fixed;width:100%;">
+                <form name="myForm" novalidate>
+                    <label class="item item-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" name="rssUrl" ng-model="rssUrl" ng-focus="updated()" placeholder="Add a podcast feed URL here to add it to our discovery" required ng-pattern="regex">
+                    </label>
+
+                    <button ng-show="formUpdated" class="button button-small button-balanced" style="float: right; margin-top:.5%;" ng-disabled="myForm.$invalid" ng-click="fetchByUrl(this)"> SUBMIT </button>
+                </form>
+            </div>
+
+        </div>
+    </ion-content>
+<!--    <ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </ion-footer-bar>-->
+
+</ion-view>

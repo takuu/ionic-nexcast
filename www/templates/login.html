@@ -1,0 +1,29 @@
+
+<ion-view title="SIGN IN" class="signup-screen" hide-nav-bar="true">
+    <div class="bar signup-header no-line">
+        <!-- <img src="../img/icon_back.png" class="header-back" ng-click="back()"> -->
+        <button ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item"><i class="icon ion-chevron-left light"></i>
+      <span class="back-text"></span></button>
+        <img src="../img/nexcast_logo_white.png" class="header-logo">
+    </div>
+    <ion-content>
+        <form>
+            <label class="item item-input">
+                <input type="email" placeholder="Email" ng-model="credentials.email">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="credentials.password">
+            </label>
+<!--              <label class="item item-input item-stacked-label">
+                <span class="input-label">Date of Birth:</span>
+                <input type="date" ng-model="details.birth">
+            </label> -->
+        </form>
+        <a class="forgot-password" href="#/forgot-password">Forgot password</a>
+        <button class="button button-green button-block signup-create-button" ng-click="login(credentials)">Sign In</button>
+        <div class="login-or uppercase">Or Login With</div>
+        <button class="button button-green button-block signup-create-button" ng-click="facebookLogin()">Facebook</button>
+        <!-- <p>By clicking Create Account you agree to our <span class="underline" ng-click="openTerms()">Terms of Service</span> and <span class="underline">Privacy Policy</span>.</p> -->
+    </ion-content>
+
+</ion-view>

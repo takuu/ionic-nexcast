@@ -1,0 +1,58 @@
+<!--
+  <player-wrapper-layout title="'Queue'">
+      <div class="list">
+        <a ng-repeat="shows in queue" href="{{show.rss_feed}}" class="item item-thumbnail-left">
+          <img ng-src="{{shows.artworkUrl100}}" />
+          <h2>{{shows.trackName}}</h2>
+          <p>{{shows.artistName}}</p>
+        </a>
+        <a class="item item-thumbnail-left">
+          <img ng-src="http://is1.mzstatic.com/image/thumb/Music62/v4/f9/51/5f/f9515fdb-4d87-a1eb-59d0-1649d8c7656f/source/100x100bb.jpg" />
+          <h2>Judge John Hodgman</h2>
+          <p>John Hodgman and Maximum Fun</p>
+        </a>
+      </div>
+  </player-wrapper-layout>
+-->
+<!--
+{podcastTitle: res.title, imageUrl: res.imageurl, parsedDescription: parsedDescription,
+                media_location: episode.media_location, episodeTitle: episode.title, episodeDate: episodeDate, duration: episode.duration}
+-->
+
+<ion-view view-title="Queue" cache-view="false">
+
+    <ion-content class="has-header" has-footer="true" has-header="true" ng-translude>
+        <ion-refresher
+                on-refresh="pullToRefresh()">
+        </ion-refresher>
+        <div class="list">
+            <a ng-repeat="episode in myQueueList track by $index" ng-click="listenTo(episode)" class="item item-thumbnail-left">
+                <img ng-src="{{episode.imageUrl}}" />
+                <h2>{{episode.episodeTitle}}</h2>
+                <!--<span style="color:#aaa;">Fake Publisher</span>-->
+                <p style="font-size:.7em;color:#777;">{{episode.prettyDate}} &nbsp; &nbsp;{{episode.prettyDuration}}</p>
+                <div style="height: 38px;font-size: .6em;color:#666;line-height:1.4em;-webkit-line-clamp: 3;white-space: normal;overflow: hidden;text-overflow: ellipsis;">
+                    {{episode.parsedDescription}}
+                </div>
+
+                <!-- This is for genre tags
+                <div style="margin-top:.3em;">
+                    <span style="background-color:#eee;font-size:.8em;color:#666;padding:.3em;"></span>
+                    <span style="background-color:#eee;font-size:.8em;color:#666;padding:.3em;"></span>
+                </div>
+                -->
+
+                <!--<p>{{episode.parsedDescription}}</p>-->
+            </a>
+            <a class="item item-icon-right" ng-show="!myQueueList.length" ui-sref="app.tab.discover.home">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 style="line-height:1.4em;">Add Episodes to Queue</h2>
+            </a>
+        </div>
+    </ion-content>
+    <!--
+    <ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </ion-footer-bar>
+    -->
+</ion-view>

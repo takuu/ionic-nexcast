@@ -1,0 +1,19 @@
+<ion-view view-title="Discover" cache-view="false">
+    <ion-content class="has-header" has-footer="true" style="top:0;">
+        <ion-tabs class="tabs-discover tabs-light tabs-top has-tabs-top tabs-striped">
+            <ion-tab title="Tagged Shows" href="#/app/tab/discover/tagged">
+                <ion-nav-view name="tab-discover-tagged"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Popular Shows" href="#/app/tab/discover/home">
+                <ion-nav-view name="tab-discover-home"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Categories" href="#/app/tab/discover/categories">
+                <ion-nav-view name="tab-discover-categories"></ion-nav-view>
+            </ion-tab>
+        </ion-tabs>
+    </ion-content>
+
+    <!--<ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </ion-footer-bar>-->
+</ion-view>

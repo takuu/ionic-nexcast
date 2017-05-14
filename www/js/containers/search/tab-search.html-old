@@ -1,0 +1,26 @@
+<ion-view view-title="Search" style="background-color:#fff;">
+
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-chevron-left" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="secondary">
+      <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+      </button>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>
+<!--  <ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>-->
+  <div ui-view="search-list"></div>
+  <div ui-view="search-item"></div>
+
+  <ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+    <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+  </ion-footer-bar>
+
+
+</ion-view>

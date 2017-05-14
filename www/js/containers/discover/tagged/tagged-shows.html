@@ -1,0 +1,16 @@
+<ion-view view-title="Discover" cache-view="false" >
+    <ion-content class="has-header">
+        <ion-refresher on-refresh="pullToRefresh()"></ion-refresher>
+        <div class="list">
+            <a ng-repeat="show in taggedShows" ui-sref="app.tab.discoverItem({rss: show.rssurl})" class="item item-thumbnail-left">
+                <img ng-src="{{show.imageurl || 'img/placeholder.jpg'}}" style="background-color:#ddd;" />
+                <h2>{{show.title}}</h2>
+                <div style="height: .8em;"></div>
+                <div style="height: 38px;font-size: .6em;color:#666;line-height:1.4em;-webkit-line-clamp: 3;white-space: normal;overflow: hidden;text-overflow: ellipsis;">
+                    {{show.summary || show.content}}
+                </div>
+                <span style="background-color:#eee;" ng-repeat="tag in show.tag">{{tag}}</span>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

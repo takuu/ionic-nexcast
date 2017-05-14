@@ -1,0 +1,65 @@
+<ion-view view-title="{{title}}" style="background-color:#fff;">
+
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-small icon ion-chevron-left" ng-click="goBack()">&nbspPodcasts</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content class="has-header" has-footer="true">
+        <ion-spinner icon="ios-small" style="position:absolute;top:50%;left:48%;z-index:1000;" ng-show="isLoading"></ion-spinner>
+
+        <!-- This is to show list of EPISODES -->
+        <div style="width:100%;display: flex;align-items:center;flex-direction: row;flex-wrap:wrap;flex-flow: row wrap;align-content: flex-end;" ng-if="!isRSS">
+            <a ng-repeat="show in myPodcasts" ui-sref="app.tab.podcasts({rss: show.rss })" style="width:33.3%;">
+                <img style="width:100%;" ng-src="{{show.image}}" />
+            </a>
+        </div>
+
+        <div class="list" ng-if="!myPodcasts.length && !isRSS">
+            <a class="item item-icon-right" ui-sref="app.tab.discover.home">
+                <i class="icon ion-ios-arrow-right"></i>
+                <h2 style="line-height:1.4em;">Subscribe to Podcasts</h2>
+            </a>
+        </div>
+
+        <div class="item item-thumbnail-left" ng-show="showResult">
+            <img ng-src="{{showResult.imageurl}}" />
+            <div>
+                <span class="search-title">{{showResult.title}}</span>
+                <span ng-if="showHasTags" class="tag-icon" style="width:24px;height:24px;margin-left:5px;"></span>
+            </div>
+            <p>{{showResult.author}}</p>
+
+
+            <div style="padding:0px;float:left;"></div>
+            <div style="padding:0px;float:right;">
+                <button class="button button-balanced button-small icon-right ion-chevron-down" ng-class="{'button-outline': !isSubscribed}" style="line-height:2.4em;" ng-click="subscribeToggle()">
+                    <span ng-if="!isSubscribed">SUBSCRIBE</span>
+                    <span ng-if="isSubscribed">SUBSCRIBED</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="item" ng-if="showResult && showResult.episodes" style="min-height:15vh;">
+
+            <h2>Description</h2>
+            <!--<p>{{showResult.long_desc}}</p>-->
+            <p style="white-space:normal;" dd-text-collapse dd-text-collapse-max-length="100" dd-text-collapse-text="{{showResult.long_desc}}"></p>
+        </div>
+        <a ng-repeat="episode in showResult.episodes" ng-click="listenTo(episode)" class="item">
+            <!--<img ng-src="{{showResult.imageurl}}" />-->
+            <div>
+                <span class="list-title">{{episode.title}}</span>
+                <span ng-if="episode.hasTags" class="tag-icon" style="width:20px;height:20px;"></span>
+            </div>
+            <p style="font-size:.7em;">{{episode.prettyDate}} &nbsp; &nbsp;{{episode.prettyDuration}}</p>
+            <!--<p>{{showResult.author}}</p>-->
+            <p class="list-description">{{episode.subtitle || episode.parsedDescription}}</p>
+        </a>
+
+    </ion-content>
+    <ion-footer-bar style="background-color:#0371d8;" ng-show="hasInstance">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </ion-footer-bar>
+</ion-view>

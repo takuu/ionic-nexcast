@@ -1,0 +1,12 @@
+<ion-view view-title="Podcasts">
+    <ion-content class="has-header" has-footer="true">
+        <div style="width:100%;display: flex;align-items:center;justify-content: center;flex-direction: row;flex-wrap:wrap;flex-flow: row wrap;align-content: flex-end;" >
+            <a ng-repeat="show in myPodcasts" ui-sref="app.tab.search({rss: show.rss })" style="width:50%;">
+                <img style="width:100%;" ng-src="{{show.image}}" />
+            </a>
+        </div>
+    </ion-content>
+  <ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+    <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+  </ion-footer-bar>
+</ion-view>

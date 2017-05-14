@@ -1,0 +1,18 @@
+<ion-view view-title="{{selected_category}}" cache-view="false">
+    <ion-content class="has-header">
+        <ion-refresher
+                on-refresh="pullToRefresh()">
+        </ion-refresher>
+      <div class="list">
+        <a ng-repeat="show in category" ui-sref="app.tab.discoverItem({rss: show.rss_feed})" class="item item-thumbnail-left">
+          <img ng-src="{{show.artworkUrl100}}" style="background-color:#ddd" />
+          <h2>{{show.name}}</h2>
+            <div style="height: .8em;"></div>
+            <div style="height: 38px;font-size: .6em;color:#666;line-height:1.4em;-webkit-line-clamp: 3;white-space: normal;overflow: hidden;text-overflow: ellipsis;">
+                {{show.summary}}
+            </div>
+        </a>
+      </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,15 @@
+<div>
+
+    <div ng-show="currentPlayerState == 2">
+        <button menu-toggle="left" class="button button-icon icon ion-chevron-down" style="color:#fff;float:left;" ng-click="back();"></button>
+        <!--<button menu-toggle="secondary" class="button button-icon icon ion-more" style="color:#fff;float:right;" ng-click="modal.show()"></button>-->
+        <div style="padding:0px 0px 0px 0px;">
+            <nexcast-player player-config="playerConfig" tag-position-list="tags">
+                <nexcast-tags tags="tags" seek-position="currentPosition" list-order="listOrder"></nexcast-tags>
+            </nexcast-player>
+        </div>
+    </div>
+    <div ng-show="currentPlayerState == 1">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </div>
+</div>

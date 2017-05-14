@@ -1,0 +1,10 @@
+<ion-view view-title="Discover" cache-view="false">
+    <ion-content class="has-header">
+      <div class="list">
+        <a ng-repeat="category in results = categories" href="#/app/tab/discover/category/{{category.genre_name}}" class="item item-icon-right">
+          <i class="icon ion-ios-arrow-right"></i>
+          {{category.genre_name || '&zwnj;'}}
+        </a>
+      </div>
+    </ion-content>
+</ion-view>

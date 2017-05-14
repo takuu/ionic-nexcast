@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <!-- Adding from http://www.gajotres.net/handling-native-view-animations-with-ionic-framework/ Native transitions blog -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">-->
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="lib/ionic-filter-bar/dist/ionic.filter.bar.css">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <script>
+      var IS_PRODUCTION = true;
+      var PRODUCTION_URL = 'http://www.nexcast.co/mapi/v1/';
+      var DEV_URL = 'http://dev.nexcast.co/mapi/v1/';
+      var API_URL = (IS_PRODUCTION) ? PRODUCTION_URL : DEV_URL;
+      document.addEventListener("deviceready", _onDeviceReady, false);
+      function _onDeviceReady() {
+        var universal_uuid = device.uuid;
+        window.open = cordova.InAppBrowser.open;
+      }
+    </script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ngstorage/ngStorage.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/helper.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/howler.js/dist/howler.min.js"></script>
+    <script src="lib/moment/moment.js"></script>
+    <script src="lib/ionic-filter-bar/dist/ionic.filter.bar.js"></script>
+
+    <script src="js/containers/home.controller.js"></script>
+    <script src="js/containers/player/player.controller.js"></script>
+    <script src="js/containers/episodeList/episodeList.controller.js"></script>
+    <script src="js/containers/profile/profile.controller.js"></script>
+    <script src="js/containers/queue/queue.controller.js"></script>
+    <script src="js/containers/subscriptionList/subscriptionList.controller.js"></script>
+    <script src="js/containers/search/search.controller.js"></script>
+    <script src="js/containers/search/searchItem.controller.js"></script>
+    <script src="js/containers/podcasts/mypodcasts.controller.js"></script>
+    <script src="js/containers/podcasts/myPodcastsItem.controller.js"></script>
+    <script src="js/containers/podcasts/show/show.controller.js"></script>
+    <script src="js/containers/discover/discover.controller.js"></script>
+    <script src="js/containers/discover/enriched/discoverEnriched.controller.js"></script>
+    <script src="js/containers/discover/category/discoverCategoryList.controller.js"></script>
+    <script src="js/containers/discover/category/discoverCategory.controller.js"></script>
+    <script src="js/containers/discover/tagged/taggedShows.controller.js"></script>
+    <script src="js/containers/discover/discoverItem.controller.js"></script>
+
+    <script src="js/services/tags.service.js"></script>
+    <script src="js/services/getEpisodesByRSS.service.js"></script>
+    <script src="js/services/hasTags.service.js"></script>
+    <script src="js/services/login.service.js"></script>
+    <script src="js/services/popular.service.js"></script>
+    <script src="js/services/register.service.js"></script>
+    <script src="js/services/search.service.js"></script>
+    <script src="js/services/subscribe.service.js"></script>
+    <script src="js/services/queue.service.js"></script>
+    <script src="js/services/playlist.singleton.js"></script>
+
+
+    <script src="js/services/discover.service.js"></script>
+    <script src="js/services/taggedShows.service.js"></script>
+    <script src="js/services/player.singleton.js"></script>
+    <script src="js/components/mainPlayer/player.component.js"></script>
+    <script src="js/components/miniPlayer/miniPlayer.component.js"></script>
+    <script src="js/components/textCollapse/textCollapse.component.js"></script>
+    <script src="js/components/tags/tags.component.js"></script>
+    <script src="js/components/playerWrapper.layout.js"></script>
+    <!--<script src="js/components/goNative/goNative.component.js"></script>-->
+  </head>
+  <body ng-app="nexcast">
+    <ion-nav-view animation="slide-left-right"></ion-nav-view>
+    <script>
+    </script>
+  </body>
+</html>

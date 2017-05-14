@@ -1,0 +1,46 @@
+<ion-view view-title="Search" cache-view="false">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
+    <!--
+    <ion-list>
+      <ion-item ng-repeat="shows in search">
+          <h2>{{shows.trackName}}</h2>
+        </ion-item>
+      </ion-list>
+    -->
+      <div class="list">
+        <a ng-repeat="shows in search" href="{{show.rss_feed}}" class="item item-thumbnail-left">
+          <img ng-src="{{shows.artworkUrl100}}" />
+          <h2>{{shows.trackName}}</h2>
+          <p>{{shows.artistName}}</p>
+        </a>
+        <div class="item" ng-show="!search.length">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Add a podcast feed URL here to add it to our discovery">
+          </label>
+          <button class="button button-small button-balanced" style="float: right; margin-top:1%;"> Submit </button>
+        </div>
+
+      </div>
+  </ion-content>
+
+<!--  NOT Doing sub tabs in MVPs
+  <ion-tabs class="tabs-discover tabs-light tabs-top has-tabs-top tabs-striped">
+      <ion-tab title="Podcasts" href="#/app/tab/search/home">
+          <ion-nav-view name="tab-search-home"></ion-nav-view>
+      </ion-tab>
+      <ion-tab title="Topics" href="#/app/tab/search/topics">
+          <ion-nav-view name="tab-search-topics"></ion-nav-view>
+      </ion-tab>
+      <ion-tab title="Keywords" href="#/app/tab/search/keywords">
+          <ion-nav-view name="tab-search-keywords"></ion-nav-view>
+      </ion-tab>
+  </ion-tabs>
+-->
+
+</ion-view>

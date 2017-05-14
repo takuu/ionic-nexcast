@@ -1,0 +1,104 @@
+.button-bar > .button:before,
+.button-bar > .button .icon:before {
+    line-height: 20px; }
+
+.button {
+    line-height:20px;
+}
+
+.loading {
+    background-color: #fff !important;
+}
+
+.modal-backdrop-bg {
+    opacity: 0 !important;
+}
+
+.tri-line {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 4.2em;
+    line-height: 1.4em;
+    white-space: normal !important;
+}
+
+.list-title {
+    font-size: 16px;
+     margin: 0 0 .5em 0;
+    font-weight: normal;
+    vertical-align: top;
+    display: inline-block;
+    /* white-space: pre-wrap; */
+    max-width: 88%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-description {
+    display: inline-block; /* or inline-block */
+    max-height: 4.2em;
+    font-size: .7em !important;
+    color: #666;
+    line-height: 1.4em;
+    -webkit-line-clamp: 3;
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.player-title {
+    display:block;
+    text-overflow: ellipsis;
+    margin-left:12.5%;
+    text-align:center;
+    overflow:hidden;
+    padding:0px;
+    color:#fff;
+    font-size:1.3em;
+    line-height:1.3em;
+    max-height:2.6em;
+}
+.ion-chevron-left:before {
+    font-size:26px !important;
+    line-height:26px !important;
+    padding-left:0px !important;
+}
+
+.search-title {
+    font-size:16px;
+    font-weight:normal;
+    vertical-align: top;
+    display:inline-block;
+    width:88%;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    max-height: 2.8em;
+    line-height: 1.4em;
+}
+
+.episode-title {
+
+}
+
+.green-link {
+    color: #01D56F;
+}
+
+/* youtube css magic */
+.video-container2 {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

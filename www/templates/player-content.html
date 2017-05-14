@@ -1,0 +1,12 @@
+<ion-view cache-view="false" view-title="{{title}}" style="background-color:#0371d8;">
+    <div>
+    <!--<div on-swipe-down="closeModal()">-->
+        <button menu-toggle="left" class="button button-icon icon ion-chevron-down" style="position:fixed;color:#fff;float:left;top:2.6%;z-index:5" ng-click="closeModal();"></button>
+        <!--<button menu-toggle="secondary" class="button button-icon icon ion-more" style="color:#fff;float:right;" ng-click="modal.show()"></button>-->
+        <div style="padding:5% 0px 0px 0px;">
+            <nexcast-player player-config="playerConfig" tag-position-list="tagPositions">
+                <nexcast-tags tags="tags" seek-position="currentPosition" list-order="listOrder"></nexcast-tags>
+            </nexcast-player>
+        </div>
+    </div>
+</ion-view>

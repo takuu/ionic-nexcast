@@ -1,0 +1,75 @@
+<ion-view view-title="Search" style="background-color:#fff;">
+
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-chevron-left" ng-click="goBack()"></button>
+        </ion-nav-buttons>
+
+
+    </ion-nav-bar>
+
+    <ion-content class="has-header" has-footer="true">
+        <ion-spinner icon="ios-small" style="position:absolute;top:50%;left:48%;z-index:1000;" ng-show="isLoading"></ion-spinner>
+        <div class="list">
+
+            <!-- This is to show list of EPISODES -->
+            <div ng-if="showResult && showResult.episodes">
+                <div class="item item-thumbnail-left">
+                    <img ng-src="{{showResult.imageurl}}" />
+                    <!--<h2>{{showResult.title}}</h2>-->
+                    <div>
+                        <span class="search-title">{{showResult.title}}</span>
+                        <span ng-if="showHasTags" class="tag-icon" style="width:24px;height:24px;margin-left:5px;"></span>
+                    </div>
+                    <p>{{showResult.author}}</p>
+
+                    <div style="padding:0px;float:left;"></div>
+                    <div style="padding:0px;float:right;">
+                        <button class="button button-balanced button-small icon-right ion-chevron-down" ng-class="{'button-outline': !isSubscribed}" style="line-height:2.4em;" ng-click="subscribeToggle()">
+                            <span ng-if="!isSubscribed">SUBSCRIBE</span>
+                            <span ng-if="isSubscribed">SUBSCRIBED</span>
+                        </button>
+                    </div>
+
+                </div>
+                <div class="item" ng-if="showResult && showResult.episodes" style="min-height:15vh;">
+
+                    <h2>Description</h2>
+                    <!--<p>{{showResult.long_desc}}</p>-->
+                    <p style="white-space:normal;" dd-text-collapse dd-text-collapse-max-length="100" dd-text-collapse-text="{{showResult.long_desc}}"></p>
+                </div>
+            </div>
+
+            <!--<a ng-repeat="episode in showResult.episodes" ui-sref="app.tab.player({mp3: episode.media_location, key: episode.episode_key, title: showResult.title, subTitle: episode.title })" class="item">-->
+            <a ng-repeat="episode in showResult.episodes" ng-click="listenTo(episode)" class="item">
+                <!--<img ng-src="{{showResult.imageurl}}" />-->
+
+                <div>
+                    <span class="list-title">{{episode.title}}</span>
+                    <span ng-if="episode.hasTags" class="tag-icon" style="width:20px;height:20px;"></span>
+                </div>
+
+                <p style="font-size:.7em;">{{episode.prettyDate}} &nbsp; &nbsp;{{episode.prettyDuration}}</p>
+                <!--<p>{{showResult.author}}</p>-->
+                <!--<p dd-text-collapse dd-text-collapse-max-length="10" dd-text-collapse-text="{{episode.subtitle || episode.parsedDescription}}"></p>-->
+                <p class="list-description">{{episode.subtitle || episode.parsedDescription}}</p>
+            </a>
+            <div class="item" ng-hide="search.length || isRSS" style="top:25%;position:fixed;width:100%;">
+                <form name="myForm" novalidate>
+                    <label class="item item-input">
+                        <i class="icon ion-search placeholder-icon"></i>
+                        <input type="text" name="rssUrl" ng-model="rssUrl" ng-focus="updated()" placeholder="Add a podcast feed URL here to add it to our discovery" required ng-pattern="regex">
+                    </label>
+
+                    <button ng-show="formUpdated" class="button button-small button-balanced" style="float: right; margin-top:.5%;" ng-disabled="myForm.$invalid" ng-click="fetchByUrl(this)"> SUBMIT </button>
+                </form>
+            </div>
+
+        </div>
+    </ion-content>
+    <ion-footer-bar style="background-color:#0371d8;" ng-if="hasInstance">
+        <nexcast-mini-player style="width:100%;"></nexcast-mini-player>
+    </ion-footer-bar>
+
+
+</ion-view>

@@ -1,0 +1,49 @@
+<div class="player">
+    <div style="min-height:25vh;">
+        <div style="position: fixed;top:4.0%;width:100%;">
+            <div class="row" style="background-color:#0371d8;padding:.5%;">
+                <div class="col col-75 player-title">{{title}}</div>
+            </div>
+            <div class="row" style="background-color:#0371d8;padding:.5%;">
+                <div class="col col-75" style="margin-left:12.5%;text-align:center;padding:0px;color:#fff;">{{subTitle}}</div>
+            </div>
+        </div>
+
+        <div class="button-bar" style="position:fixed;top:15vh;">
+            <button class="button" style="background-color:#0371d8;color:#fff;border:none;" ng-click="increaseRate()" ng-disabled="!podcastLoaded">
+                <!--<img style="width:2em;" ng-src="{{currentRate.img}}" />-->
+                <span style="width:2em;font-size:1.2em;">{{currentRate.rate}}x</span>
+            </button>
+            <button class="button icon" style="background-color:#0371d8;color:#fff;border:none;" ng-click="backSeek()" ng-disabled="!podcastLoaded">
+                <img style="width:2em;" src="img/icon_skip_back.png" />
+            </button>
+
+            <button class="button icon" ng-class="{'ion-play': !playing,'ion-pause': playing}" ng-disabled="!podcastLoaded" style="background-color:#0371d8;color:#fff;border:none;" ng-click="toggle()"></button>
+
+            <button class="button icon" style="background-color:#0371d8;color:#fff;border:none;" ng-click="forwardSeek()" ng-disabled="!podcastLoaded">
+                <img style="width:2em;" src="img/icon_skip_forward.png" />
+            </button>
+            <button class="button" style="background-color:#0371d8;color:#fff;border:none;"></button>
+        </div>
+
+        <div style="padding:0% 2% 3% 2%;background-color:#0371d8;width:100%;position:fixed;top:20%;margin-top:3px;">
+            <div class="row" style="padding:0px;">
+                <span class="col" style="color:#fff;text-align:left;padding:0px;">&nbsp{{position}}</span>
+                <span class="col" style="color:#fff;text-align:right;padding:0px;">&nbsp{{timeLeft}}</span>
+            </div>
+
+            <div style="width:100%;background-color:#56a0e5;height:4vh;position: relative;">
+                <div style="height:100%;width:.5%;background-color:#0371d8;position: absolute;top:0px;" ng-repeat="pos in tagPositions track by $index" ng-style="{'left': pos}"></div>
+                <!--<div style="height:100%;width:.5%;background-color:#fff;position: absolute;top:0px;" on-drag="foobar($event)" ng-class="" ng-style="{'left': seekPosition}"></div>-->
+
+                <div style="height:4vh;width:3%;position: fixed;" on-drag="onDrag($event)" ng-style="{'left': seekPosition}">
+                    <div style="height:100%;width:33%;background-color:#fff;position: absolute;top:0px;left:33%;"></div>
+                </div>
+
+                <!--<div style="height:100%;width:.9%;background-color:#fff;position: absolute;top:0px;" ng-style="{'left': seekPosition}"></div>-->
+            </div>
+        </div>
+    </div>
+
+    <div ng-transclude style="background-color:#fff;min-height:500px;"></div>
+</div>

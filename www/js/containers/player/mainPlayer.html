@@ -1,0 +1,36 @@
+<!--
+<ion-view cache-view="false" view-title="{{title}}" style="background-color:#0371d8;">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+            <button menu-toggle="left" class="button button-icon icon ion-chevron-down"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="secondary">
+            <button class="button button-icon icon ion-more" style="color:#fff;" ng-click="modal.show()">
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content class="has-header">
+        <div style="padding:2% 0px 0px 0px;">
+            <nexcast-player player-config="playerConfig" tag-position-list="tags">
+                <nexcast-tags tags="tags" seek-position="currentPosition" list-order="listOrder"></nexcast-tags>
+            </nexcast-player>
+        </div>
+
+    </ion-content>
+</ion-view>
+-->
+
+
+<ion-view cache-view="false" view-title="{{title}}" style="background-color:#0371d8;">
+    <ion-content >
+        <button menu-toggle="left" class="button button-icon icon ion-chevron-down" style="color:#fff;float:left;" ng-click="back();"></button>
+        <!--<button menu-toggle="secondary" class="button button-icon icon ion-more" style="color:#fff;float:right;" ng-click="modal.show()"></button>-->
+        <div style="padding:0px 0px 0px 0px;">
+            <nexcast-player player-config="playerConfig" tag-position-list="tags">
+                <nexcast-tags tags="tags" seek-position="currentPosition" list-order="listOrder"></nexcast-tags>
+            </nexcast-player>
+        </div>
+    </ion-content>
+</ion-view>
+
